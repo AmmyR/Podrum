@@ -31,11 +31,11 @@ logo = """
 
 
 class Server:
-    def __init__(self, path, withWizard):
+    def __init__(self, path, withWizard, isTravisBuild = False):
         super().__init__()
         self.path = path
         self.withWizard = withWizard
-        if(withWizard == True):
+        if(withWizard):
             fs.checkAllFiles(path)
         else:
             wizard.skipWizard(path)
@@ -48,6 +48,9 @@ class Server:
         server = PyRakLibServer(port=19132)
         handler = ServerHandler(server, None)
         handler.sendOption("name", "MCPE;Podrum powered server;390;1.14.60;0;0;0;PodrumPoweredServer;0")
+        if(isTravisBuild):
+            print("Build success.")
+            command("stop", True)
         while wizard.isInWizard == False:
             cmd = input('> ')
             command(cmd, True)
