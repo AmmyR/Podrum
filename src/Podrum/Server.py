@@ -11,7 +11,7 @@
 * (at your option) any later version.
 """
 import time
-import sys
+import os
 from ..pyraklib.server import PyRakLibServer
 from ..pyraklib.server import ServerHandler
 
@@ -51,6 +51,7 @@ class Server:
         handler.sendOption("name", "MCPE;Podrum powered server;390;1.14.60;0;0;0;PodrumPoweredServer;0")
         if(isTravisBuild):
             print("Build success.")
+            os._exit(0)
         else:
             while wizard.isInWizard == False:
                 cmd = input('> ')
