@@ -31,10 +31,14 @@ logo = """
 
 
 class Server:
-    def __init__(self, path):
+    def __init__(self, path, withWizard):
         super().__init__()
         self.path = path
-        fs.checkAllFiles(path)
+        self.withWizard = withWizard
+        if(withWizard == True):
+            fs.checkAllFiles(path)
+        else:
+            wizard.skipWizard(path)
         port = 19132
         print(str(logo))
         wizard.isInWizard = False
