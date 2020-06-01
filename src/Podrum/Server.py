@@ -51,15 +51,14 @@ class Server:
         handler.sendOption("name", "MCPE;Podrum powered server;390;1.14.60;0;0;0;PodrumPoweredServer;0")
         if(isTravisBuild):
             print("Build success.")
-            Utils.killServer()
-            sys.exit(0)
-        while wizard.isInWizard == False:
-            cmd = input('> ')
-            command(cmd, True)
-            cmd = None
-        ticking = True
-        while ticking:
-            time.sleep(0.002)
+        else:
+            while wizard.isInWizard == False:
+                cmd = input('> ')
+                command(cmd, True)
+                cmd = None
+            ticking = True
+            while ticking:
+                time.sleep(0.002)
 
 
 def command(string, fromConsole):
