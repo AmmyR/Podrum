@@ -50,7 +50,7 @@ class Server:
         handler.sendOption("name", "MCPE;Podrum powered server;390;1.14.60;0;0;0;PodrumPoweredServer;0")
         if(isTravisBuild):
             print("Build success.")
-            command("stop", True)
+            exit(0)
         while wizard.isInWizard == False:
             cmd = input('> ')
             command(cmd, True)
