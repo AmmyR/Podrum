@@ -39,7 +39,7 @@ class Server:
         if(withWizard):
             fs.checkAllFiles(path)
         else:
-            wizard.skipWizard(path)
+            wizard.skipWizard(path, True)
         port = 19132
         print(str(logo))
         wizard.isInWizard = False
